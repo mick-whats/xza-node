@@ -2,7 +2,7 @@
   "name": "xza",
   "version": "1.0.0",
   "scripts": {
-    "test": "nyc ava",
+    "test": "nyc --reporter=lcov ava",
     "compile": "coffee -o ./ -cw coffee/",
     "watch": "npm run compile & npm run test",
     "cover": "nyc ava",
