@@ -5,3 +5,8 @@ node_js:
   - "8"
   - "7"
   - "6"
+
+before_install:
+  - npm install -g npm
+  - npm install -g nyc
+  - npm install -g ava
