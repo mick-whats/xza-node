@@ -1,0 +1,64 @@
+{
+  "name": "xza",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "ava",
+    "compile": "coffee -o ./ -cw coffee/",
+    "watch": "npm run compile & npm run test",
+    "cover": "nyc ava",
+    "report": "nyc report --reporter=html",
+    "update:snap": "ava --update-snapshots"
+  },
+  "keywords": [],
+  "dependencies": {
+    "lodash": "latest",
+    "object-sizeof": "^1.2.0",
+    "pretty-bytes": "^5.0.0",
+    "rrq": "^1.1.1"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.2.3"
+  },
+  "coffeelintConfig": {
+    "max_line_length": {
+      "level": "ignore"
+    },
+    "colon_assignment_spacing": {
+      "level": "warn",
+      "spacing": {
+        "left": 0,
+        "right": 1
+      }
+    },
+    "missing_fat_arrows": {
+      "level": "warn"
+    },
+    "no_interpolation_in_single_quotes": {
+      "level": "warn"
+    },
+    "no_unnecessary_fat_arrows": {
+      "level": "ignore"
+    },
+    "no_unnecessary_double_quotes": {
+      "level": "warn"
+    }
+  },
+  "ava": {
+    "files": [
+      "test/*.js"
+    ],
+    "source": [
+      "**/*.js"
+    ],
+    "failFast": false,
+    "serial": false,
+    "tap": false,
+    "powerAssert": true,
+    "verbose": true,
+    "color": true,
+    "watch": true
+  },
+  "main": "lib/index.js",
+  "license": "MIT",
+  "author": "mick-whats"
+}
