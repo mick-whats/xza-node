@@ -13,5 +13,4 @@ utility =
     else
       return num
 
-_.mixin(sizeof: utility.sizeof)
-_.mixin(strToNumber: utility.strToNumber)
+module.exports = utility

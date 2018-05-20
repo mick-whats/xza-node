@@ -4,7 +4,7 @@
 
   assert = require('assert');
 
-  _ = require('lodash');
+  _ = require('../').lodash;
 
   ({test} = require('ava'));
 
@@ -23,7 +23,8 @@
         value: i
       };
     });
-    return t.is(_.sizeof(obj), '576 kB');
+    t.is(_.sizeof(obj), '576 kB');
+    return t.log(_);
   });
 
   test('util.strToNumber', function(t) {

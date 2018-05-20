@@ -1,5 +1,5 @@
 assert = require 'assert'
-_ = require 'lodash'
+_ = require('../').lodash
 {test} = require 'ava'
 
 require '../'
@@ -8,6 +8,7 @@ test 'util.sizeof',(t)->
   t.is _.sizeof(1999), '8 B'
   obj = [0..10000].map (i)-> {name: "testName#{i}",value: i}
   t.is _.sizeof(obj), '576 kB'
+  t.log _
 
 test 'util.strToNumber', (t)->
   t.true _.strToNumber('123,456') is 123456

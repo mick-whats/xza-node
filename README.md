@@ -8,8 +8,7 @@ npm install xza --save
 ```
 
 ```
-_ = require('lodash')
-require('xza')
+_ = require('xza').lodash
 ```
 
 ## utility

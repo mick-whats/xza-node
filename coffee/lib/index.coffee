@@ -1,2 +1,8 @@
+_ = require 'lodash'
+utility = require './utility'
+_.mixin(sizeof: utility.sizeof)
+_.mixin(strToNumber: utility.strToNumber)
+
 module.exports =
-  utility: require './utility'
+  utility: utility
+  lodash: _
