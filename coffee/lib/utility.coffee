@@ -3,7 +3,7 @@ sizeof = require('object-sizeof')
 prettyBytes = require('pretty-bytes')
 
 
-module.exports =
+utility =
   sizeof: (obj)-> prettyBytes(sizeof(obj))
   strToNumber: (str,returnValue = NaN)->
     str = str.replace(/^[△▲Δ](.*)/,'-$1')
@@ -12,3 +12,6 @@ module.exports =
       return returnValue
     else
       return num
+
+_.mixin(sizeof: utility.sizeof)
+_.mixin(strToNumber: utility.strToNumber)
