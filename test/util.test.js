@@ -28,4 +28,22 @@
     return t.is(util.sizeof(obj), '576 kB');
   });
 
+  test('util.strToNumber', function(t) {
+    var strToNumber;
+    ({strToNumber} = xza.utility);
+    t.true(strToNumber('123,456') === 123456);
+    t.true(strToNumber('-123,456,789') === -123456789);
+    t.true(strToNumber('△123,456,789') === -123456789);
+    t.true(strToNumber('▲123,456,789') === -123456789);
+    t.true(strToNumber('Δ123,456,789') === -123456789);
+    t.true(Number.isNaN(strToNumber('▼123,456,789')));
+    t.true(Number.isNaN(strToNumber('abc')));
+    t.false(strToNumber('abc', false) === (0/0));
+    t.true(strToNumber('abc', false) === false);
+    t.false(strToNumber('abc', true) === (0/0));
+    t.true(strToNumber('abc', true) === true);
+    t.false(strToNumber('abc', null) === (0/0));
+    return t.true(strToNumber('abc', null) === null);
+  });
+
 }).call(this);
