@@ -15,3 +15,5 @@ _ = require('xza').lodash
 
 - \_.sizeof( obj )
 - \_.strToNumber( str, returnValue = NaN )
+- \_.replaceAll( str, obj )
+- \_.toHalfString( str )

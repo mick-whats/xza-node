@@ -23,8 +23,7 @@
         value: i
       };
     });
-    t.is(_.sizeof(obj), '576 kB');
-    return t.log(_);
+    return t.is(_.sizeof(obj), '576 kB');
   });
 
   test('util.strToNumber', function(t) {
@@ -40,7 +39,39 @@
     t.false(_.strToNumber('abc', true) === (0/0));
     t.true(_.strToNumber('abc', true) === true);
     t.false(_.strToNumber('abc', null) === (0/0));
-    return t.true(_.strToNumber('abc', null) === null);
+    t.true(_.strToNumber('abc', null) === null);
+    t.true(_.strToNumber('18円32銭') === 18.32);
+    t.true(_.strToNumber('18円00銭') === 18);
+    t.true(_.strToNumber('18%') === 18);
+    t.true(_.strToNumber('18％') === 18);
+    return t.true(_.strToNumber('１２３、４５６、７８９') === 123456789);
+  });
+
+  test('replaceAll(str, obj)', function(t) {
+    var str;
+    str = '3円00銭';
+    t.is(_.replaceAll(str, {
+      '円': '.',
+      '銭': ''
+    }), '3.00');
+    str = 'abcabcabc';
+    t.is(_.replaceAll(str, {
+      a: '!',
+      b: '',
+      c: '?'
+    }), '!?!?!?');
+    str = 'abcabcabc';
+    return t.is(_.replaceAll(str, {
+      '[a-b]': ''
+    }), 'ccc');
+  });
+
+  test('toHalfString(str)', function(t) {
+    var str;
+    str = 'ａｂｃ５００';
+    t.is(_.toHalfString(str), 'abc500');
+    str = 'ａｂｃ！？￥';
+    return t.is(_.toHalfString(str), 'abc！？￥');
   });
 
 }).call(this);
