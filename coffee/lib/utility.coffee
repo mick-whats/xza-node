@@ -1,7 +1,7 @@
 _ = require 'lodash'
 sizeof = require('object-sizeof')
 prettyBytes = require('pretty-bytes')
-
+moment = require 'moment'
 
 utility =
   sizeof: (obj)-> prettyBytes(sizeof(obj))
@@ -23,7 +23,33 @@ utility =
       ret = ret.replace(new RegExp(key,'g'), val)
     return ret
   toHalfString: (str)->
-    ret = str.replace(/[０-９ａ-ｚＡ-Ｚ]/g,(s)->
+    str.replace(/[０-９ａ-ｚＡ-Ｚ]/g,(s)->
       String.fromCharCode(s.charCodeAt(0) - 0xFEE0 ))
-    ret
+  whiteSpaceRemover: (str)->
+    str.replace(/[\s　]/g,'')
+  toDateString: (obj,format)->
+    _obj = obj
+    _format = format or 'YYYY-MM-DD'
+    if _.isString(obj)
+      _obj = utility.whiteSpaceRemover(obj)
+      _obj = utility.toHalfString(obj)
+      if _match = _obj.match(/(.*)[年-](\d*)[月-](\d*)日?/)
+        [_raw,_year,_month,_day] = _match
+        if _month.length is 1
+          _month = "0#{_month}"
+        if _day.length is 1
+          _day = "0#{_day}"
+        if _eras = _year.match(/([^\x01-\x7E\uFF61-\uFF9F]{2})(\d*)/)
+          [_raw,_era,_year] = _eras
+          switch _era
+            when '平成'
+              _year = Number(_year) + 1988
+            when '昭和'
+              _year = Number(_year) + 1925
+            when '大正'
+              _year = Number(_year) + 1911
+            else
+        _obj = "#{_year}-#{_month}-#{_day}"
+    moment(_obj).format(_format)
+
 module.exports = utility

@@ -19,6 +19,7 @@
   "keywords": [],
   "dependencies": {
     "lodash": "latest",
+    "moment": "^2.22.1",
     "object-sizeof": "^1.2.0",
     "pretty-bytes": "^5.0.0",
     "rrq": "^1.1.1"
