@@ -17,3 +17,5 @@ _ = require('xza').lodash
 - \_.strToNumber( str, returnValue = NaN )
 - \_.replaceAll( str, obj )
 - \_.toHalfString( str )
+- \_.whiteSpaceRemover( str )
+- \_.toDateString( obj )
