@@ -25,7 +25,9 @@
     "rrq": "^1.1.1"
   },
   "devDependencies": {
-    "coffeescript": "^2.2.3"
+    "ava": "^0.25.0",
+    "coffeescript": "^2.2.3",
+    "nyc": "^11.8.0"
   },
   "coffeelintConfig": {
     "max_line_length": {
