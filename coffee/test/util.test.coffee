@@ -57,3 +57,4 @@ test 'toDateString(obj,format)', (t)->
   t.is td('2018-5-27'),'2018-05-27'
   t.is td('20180527'),'2018-05-27'
   t.is td('成３０年５月２７日'),'Invalid date'
+  t.is td('2018-5-27','YYYYMMDD'),'20180527'
