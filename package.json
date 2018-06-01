@@ -4,7 +4,7 @@
   "scripts": {
     "test": "nyc ava",
     "compile": "coffee -o ./ -cw coffee/",
-    "watch": "npm run compile & npm run test",
+    "watch": "npm run compile & nyc ava --watch",
     "cover": "nyc ava",
     "report": "nyc report --reporter=html",
     "update:snap": "ava --update-snapshots"
@@ -67,7 +67,7 @@
     "powerAssert": true,
     "verbose": true,
     "color": true,
-    "watch": true
+    "watch": false
   },
   "main": "lib/index.js",
   "license": "MIT",
