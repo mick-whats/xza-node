@@ -1,3 +1,7 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=9b4935b4121a8f4464d8c685e83b23e5c6ec41c38709ee546da30f89a0172ca6
+
 language: node_js
 node_js:
   - "10"
@@ -5,5 +9,9 @@ node_js:
   - "8"
   - "7"
   - "6"
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 after_success:
-  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
