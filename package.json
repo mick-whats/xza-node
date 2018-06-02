@@ -2,7 +2,7 @@
   "name": "xza",
   "version": "2.2.0",
   "scripts": {
-    "test": "nyc ava",
+    "test": "ava",
     "compile": "coffee -o ./ -cw coffee/",
     "watch": "npm run compile & nyc ava --watch",
     "cover": "nyc ava",
@@ -64,8 +64,7 @@
     "failFast": false,
     "serial": false,
     "tap": false,
-    "powerAssert": true,
-    "verbose": true,
+    "verbose": false,
     "color": true,
     "watch": false
   },
