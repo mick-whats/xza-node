@@ -51,5 +51,14 @@ utility =
             else
         _obj = "#{_year}-#{_month}-#{_day}"
     moment(_obj).format(_format)
+  splitUppercase: (str,type=0)->
+    str = utility.whiteSpaceRemover(str)
+    if type
+      str = str.replace(/([A-Z])/g,'___$1')
+      str = str.replace(/^___/g,'')
+      return str.split('___')
+    else
+      str = str.replace(/([a-z])([A-Z])/g,'$1___$2')
+      return str.split('___')
 
 module.exports = utility

@@ -59,3 +59,14 @@ test 'toDateString(obj,format)', (t)->
   t.is td('20180527'),'2018-05-27'
   # t.is td('成３０年５月２７日'),'Invalid date'
   t.is td('2018-5-27','YYYYMMDD'),'20180527'
+
+test 'splitUppercase(str,type)', (t)->
+  sp = _.splitUppercase
+  # 小文字と大文字の間で分割
+  t.deepEqual sp('isJSON'), ['is','JSON']
+  t.deepEqual sp('ILoveYou'), ['ILove','You']
+  t.deepEqual sp('NHK News'), ['NHKNews']
+  # 大文字の前で分割
+  t.deepEqual sp('isJSON',true), ['is','J','S','O','N']
+  t.deepEqual sp('ILoveYou',true), ['I','Love','You']
+  t.deepEqual sp('NHK News',true), ['N','H','K','News']

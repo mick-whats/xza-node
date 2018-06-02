@@ -94,4 +94,17 @@
     return t.is(td('2018-5-27', 'YYYYMMDD'), '20180527');
   });
 
+  test('splitUppercase(str,type)', function(t) {
+    var sp;
+    sp = _.splitUppercase;
+    // 小文字と大文字の間で分割
+    t.deepEqual(sp('isJSON'), ['is', 'JSON']);
+    t.deepEqual(sp('ILoveYou'), ['ILove', 'You']);
+    t.deepEqual(sp('NHK News'), ['NHKNews']);
+    // 大文字の前で分割
+    t.deepEqual(sp('isJSON', true), ['is', 'J', 'S', 'O', 'N']);
+    t.deepEqual(sp('ILoveYou', true), ['I', 'Love', 'You']);
+    return t.deepEqual(sp('NHK News', true), ['N', 'H', 'K', 'News']);
+  });
+
 }).call(this);
