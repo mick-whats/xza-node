@@ -72,3 +72,4 @@ test 'splitUppercase(str,type)', (t)->
   t.deepEqual sp('isJSON',true), ['is','J','S','O','N']
   t.deepEqual sp('ILoveYou',true), ['I','Love','You']
   t.deepEqual sp('NHK News',true), ['N','H','K','News']
+  t.deepEqual sp('NextAccumulatedQ2Duration',true), ['Next','Accumulated','Q2','Duration']

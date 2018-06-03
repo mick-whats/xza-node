@@ -106,7 +106,8 @@
     // 大文字の前で分割
     t.deepEqual(sp('isJSON', true), ['is', 'J', 'S', 'O', 'N']);
     t.deepEqual(sp('ILoveYou', true), ['I', 'Love', 'You']);
-    return t.deepEqual(sp('NHK News', true), ['N', 'H', 'K', 'News']);
+    t.deepEqual(sp('NHK News', true), ['N', 'H', 'K', 'News']);
+    return t.deepEqual(sp('NextAccumulatedQ2Duration', true), ['Next', 'Accumulated', 'Q2', 'Duration']);
   });
 
 }).call(this);
