@@ -58,7 +58,7 @@ utility =
       str = str.replace(/^___/g,'')
       return str.split('___')
     else
-      str = str.replace(/([a-z])([A-Z])/g,'$1___$2')
+      str = str.replace(/([a-z0-9])([A-Z])/g,'$1___$2')
       return str.split('___')
 
 module.exports = utility

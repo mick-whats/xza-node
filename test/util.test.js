@@ -102,6 +102,7 @@
     t.deepEqual(sp('isJSON'), ['is', 'JSON']);
     t.deepEqual(sp('ILoveYou'), ['ILove', 'You']);
     t.deepEqual(sp('NHK News'), ['NHKNews']);
+    t.deepEqual(sp('NextAccumulatedQ2Duration'), ['Next', 'Accumulated', 'Q2', 'Duration']);
     // 大文字の前で分割
     t.deepEqual(sp('isJSON', true), ['is', 'J', 'S', 'O', 'N']);
     t.deepEqual(sp('ILoveYou', true), ['I', 'Love', 'You']);
