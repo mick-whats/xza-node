@@ -25,5 +25,6 @@ _ = require('xza').lodash
 - \_.whiteSpaceRemover( str )
 - \_.toDateString( obj )
 - \_.splitUppercase(str,type)
+- \_.deepKeys( obj )
 
 [example](coffee/test/util.test.coffee)
