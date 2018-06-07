@@ -61,4 +61,28 @@ utility =
       str = str.replace(/([a-z0-9])([A-Z])/g,'$1___$2')
       return str.split('___')
 
+  deepKeys: (obj)->
+    # result = []
+    first = true
+    _depth = []
+    next = true
+    while next
+      if first
+        _depth.push(Object.keys(obj))
+        first = false
+      _keys = _.last(_depth)
+      _halfway = []
+      next = false
+      _keys.forEach (key)->
+        _halfObj = _.get(obj,key)
+        if _.isPlainObject(_halfObj) or _.isArray(_halfObj)
+          next = true
+          _arr = Object.keys(_halfObj).map (childKey)->
+            return "#{key}.#{childKey}"
+          _halfway.push(_arr)
+        else
+          _halfway.push(key)
+      _depth.push(_.flatten _halfway)
+    return _.last(_depth)
+
 module.exports = utility

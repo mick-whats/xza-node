@@ -110,4 +110,39 @@
     return t.deepEqual(sp('NextAccumulatedQ2Duration', true), ['Next', 'Accumulated', 'Q2', 'Duration']);
   });
 
+  test('deepKeys', function(t) {
+    var _keys, obj;
+    obj = {
+      a: {
+        b: {
+          c: [1, 2, 3]
+        },
+        d: new Date()
+      },
+      e: {
+        f: {
+          g: 'h'
+        }
+      }
+    };
+    _keys = _.deepKeys(obj);
+    t.deepEqual(_keys, ['a.b.c.0', 'a.b.c.1', 'a.b.c.2', 'a.d', 'e.f.g']);
+    obj = [
+      {
+        name: 'alice',
+        age: 17
+      },
+      {
+        name: 'bob',
+        age: 32
+      },
+      {
+        name: 'charlie',
+        age: 25
+      }
+    ];
+    _keys = _.deepKeys(obj);
+    return t.deepEqual(_keys, ['0.name', '0.age', '1.name', '1.age', '2.name', '2.age']);
+  });
+
 }).call(this);

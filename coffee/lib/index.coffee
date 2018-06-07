@@ -7,6 +7,7 @@ _.mixin(toHalfString: utility.toHalfString)
 _.mixin(whiteSpaceRemover: utility.whiteSpaceRemover)
 _.mixin(toDateString: utility.toDateString)
 _.mixin(splitUppercase: utility.splitUppercase)
+_.mixin(deepKeys: utility.deepKeys)
 
 module.exports =
   utility: utility
