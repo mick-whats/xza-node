@@ -22,7 +22,8 @@
     "moment": "^2.22.1",
     "object-sizeof": "^1.2.0",
     "pretty-bytes": "^5.0.0",
-    "rrq": "^1.1.1"
+    "rrq": "^1.1.1",
+    "sma": "^0.1.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
