@@ -26,5 +26,6 @@ _ = require('xza').lodash
 - \_.toDateString( obj )
 - \_.splitUppercase(str,type)
 - \_.deepKeys( obj )
+- \_.commonPath( paths )
 
 [example](coffee/test/util.test.coffee)

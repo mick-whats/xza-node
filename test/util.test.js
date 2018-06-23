@@ -145,4 +145,16 @@
     return t.deepEqual(_keys, ['0.name', '0.age', '1.name', '1.age', '2.name', '2.age']);
   });
 
+  test('commonPath(pathStrings)', function(t) {
+    var paths;
+    paths = ['a.b.c.d.e.f', 'a.b.c.x.z', 'a.b.c', 'a.b.c.d.s'];
+    return t.deepEqual(_.commonPath(paths), ['a', 'b', 'c']);
+  });
+
+  test('commonPath(pathArray)', function(t) {
+    var paths;
+    paths = [['a', 'b', 'c', 'd', 'e'], ['a', 'b', 'c', 'x', 'z', 'q'], ['a', 'b', 'c', 'g', 'r'], ['a', 'b', 'c', 's'], ['a', 'b', 'c']];
+    return t.deepEqual(_.commonPath(paths), ['a', 'b', 'c']);
+  });
+
 }).call(this);
