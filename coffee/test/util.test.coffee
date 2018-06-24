@@ -105,3 +105,42 @@ test 'deepKeys',(t)->
     '2.name',
     '2.age',
   ]
+test 'commonPath(pathStrings)',(t)->
+  paths = [
+    'a.b.c.d.e.f',
+    'a.b.c.x.z',
+    'a.b.c',
+    'a.b.c.d.s',
+  ]
+  t.deepEqual _.commonPath(paths),['a','b','c']
+test 'commonPath(pathArray)',(t)->
+  paths = [
+    ['a','b','c','d','e']
+    ['a','b','c','x','z','q']
+    ['a','b','c','g','r']
+    ['a','b','c','s']
+    ['a','b','c']
+  ]
+  t.deepEqual _.commonPath(paths),['a','b','c']
+
+test 'compactObject(obj)',(t)->
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 0
+      eee:
+        fff: undefined
+        ggg: null
+      hhh:
+        iii:
+          jjj: true
+  t.deepEqual _.compactObject(obj), {
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 0
+      hhh:
+        iii:
+          jjj: true
+  }
