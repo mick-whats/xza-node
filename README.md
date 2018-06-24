@@ -28,5 +28,7 @@ _ = require('xza').lodash
 - \_.deepKeys( obj )
 - \_.commonPath( paths )
 - \_.compactObject( obj )
+- \_.flattenObject( obj, separator='\_')
+- \_.mapObject( obj, fn )
 
 [example](coffee/test/util.test.coffee)

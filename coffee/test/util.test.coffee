@@ -144,3 +144,114 @@ test 'compactObject(obj)',(t)->
         iii:
           jjj: true
   }
+
+test 'flattenObject(obj)',(t)->
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 0
+      eee:
+        fff: undefined
+        ggg: null
+      hhh:
+        iii:
+          jjj: true
+  t.deepEqual _.flattenObject(obj), {
+    aaa_bbb_ccc: 1,
+    aaa_bbb_ddd: 0,
+    aaa_eee_fff: undefined,
+    aaa_eee_ggg: null,
+    aaa_hhh_iii_jjj: true,
+  }
+test 'flattenObject(obj, separator)',(t)->
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 0
+      eee:
+        fff: undefined
+        ggg: null
+      hhh:
+        iii:
+          jjj: true
+  t.deepEqual _.flattenObject(obj, '-'), {
+    'aaa-bbb-ccc': 1,
+    'aaa-bbb-ddd': 0,
+    'aaa-eee-fff': undefined,
+    'aaa-eee-ggg': null,
+    'aaa-hhh-iii-jjj': true,
+  }
+test 'mapObject(obj, fn) with sum',(t)->
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 2
+      eee:
+        fff: 3
+        ggg: 4
+  newObj = _.mapObject obj, (val,path,index,object)->
+    return val * 2
+  t.deepEqual newObj, {
+    aaa:
+      bbb:
+        ccc: 2
+        ddd: 4
+      eee:
+        fff: 6
+        ggg: 8
+  }
+
+test 'mapObject(obj, fn) with returned array',(t)->
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 0
+      eee:
+        fff: undefined
+        ggg: null
+  newObj = _.mapObject obj, (val,path,index,object)->
+    if path.match(/aaa\.bbb/)
+      newPath = path.replace('aaa.bbb','xxx')
+      return [newPath, val]
+    else
+      return [path, val]
+  t.log JSON.stringify(newObj,null,2)
+  t.deepEqual newObj, {
+    xxx:
+      ccc: 1
+      ddd: 0
+    aaa:
+      eee:
+        fff: undefined
+        ggg: null
+  }
+
+test 'mapObject(obj, fn) with returned object',(t)->
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 0
+      eee:
+        fff: undefined
+        ggg: null
+  newObj = _.mapObject obj, (val,path,index,object)->
+    if path.match(/aaa\.bbb/)
+      newPath = path.replace('aaa.bbb','xxx')
+      return {[newPath]: val}
+    else
+      return {[path]: val}
+  t.log JSON.stringify(newObj,null,2)
+  t.deepEqual newObj, {
+    xxx:
+      ccc: 1
+      ddd: 0
+    aaa:
+      eee:
+        fff: undefined
+        ggg: null
+  }

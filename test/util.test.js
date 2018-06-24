@@ -191,4 +191,171 @@
     });
   });
 
+  test('flattenObject(obj)', function(t) {
+    var obj;
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 0
+        },
+        eee: {
+          fff: void 0,
+          ggg: null
+        },
+        hhh: {
+          iii: {
+            jjj: true
+          }
+        }
+      }
+    };
+    return t.deepEqual(_.flattenObject(obj), {
+      aaa_bbb_ccc: 1,
+      aaa_bbb_ddd: 0,
+      aaa_eee_fff: void 0,
+      aaa_eee_ggg: null,
+      aaa_hhh_iii_jjj: true
+    });
+  });
+
+  test('flattenObject(obj, separator)', function(t) {
+    var obj;
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 0
+        },
+        eee: {
+          fff: void 0,
+          ggg: null
+        },
+        hhh: {
+          iii: {
+            jjj: true
+          }
+        }
+      }
+    };
+    return t.deepEqual(_.flattenObject(obj, '-'), {
+      'aaa-bbb-ccc': 1,
+      'aaa-bbb-ddd': 0,
+      'aaa-eee-fff': void 0,
+      'aaa-eee-ggg': null,
+      'aaa-hhh-iii-jjj': true
+    });
+  });
+
+  test('mapObject(obj, fn) with sum', function(t) {
+    var newObj, obj;
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 2
+        },
+        eee: {
+          fff: 3,
+          ggg: 4
+        }
+      }
+    };
+    newObj = _.mapObject(obj, function(val, path, index, object) {
+      return val * 2;
+    });
+    return t.deepEqual(newObj, {
+      aaa: {
+        bbb: {
+          ccc: 2,
+          ddd: 4
+        },
+        eee: {
+          fff: 6,
+          ggg: 8
+        }
+      }
+    });
+  });
+
+  test('mapObject(obj, fn) with returned array', function(t) {
+    var newObj, obj;
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 0
+        },
+        eee: {
+          fff: void 0,
+          ggg: null
+        }
+      }
+    };
+    newObj = _.mapObject(obj, function(val, path, index, object) {
+      var newPath;
+      if (path.match(/aaa\.bbb/)) {
+        newPath = path.replace('aaa.bbb', 'xxx');
+        return [newPath, val];
+      } else {
+        return [path, val];
+      }
+    });
+    t.log(JSON.stringify(newObj, null, 2));
+    return t.deepEqual(newObj, {
+      xxx: {
+        ccc: 1,
+        ddd: 0
+      },
+      aaa: {
+        eee: {
+          fff: void 0,
+          ggg: null
+        }
+      }
+    });
+  });
+
+  test('mapObject(obj, fn) with returned object', function(t) {
+    var newObj, obj;
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 0
+        },
+        eee: {
+          fff: void 0,
+          ggg: null
+        }
+      }
+    };
+    newObj = _.mapObject(obj, function(val, path, index, object) {
+      var newPath;
+      if (path.match(/aaa\.bbb/)) {
+        newPath = path.replace('aaa.bbb', 'xxx');
+        return {
+          [newPath]: val
+        };
+      } else {
+        return {
+          [path]: val
+        };
+      }
+    });
+    t.log(JSON.stringify(newObj, null, 2));
+    return t.deepEqual(newObj, {
+      xxx: {
+        ccc: 1,
+        ddd: 0
+      },
+      aaa: {
+        eee: {
+          fff: void 0,
+          ggg: null
+        }
+      }
+    });
+  });
+
 }).call(this);

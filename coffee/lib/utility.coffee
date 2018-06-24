@@ -112,4 +112,32 @@ utility =
         return
     return newObj
 
+  flattenObject: (obj, separator='_')->
+    _paths = utility.deepKeys(obj)
+    newObj = {}
+    _paths.forEach (p)->
+      val = _.get(obj,p)
+      _newPath = p.replace(/\./g,separator)
+      _.set(newObj,_newPath,val)
+    return newObj
+
+  mapObject: (obj, fn)->
+    _paths = utility.deepKeys(obj)
+    newObj = {}
+    _paths.forEach (p,i)->
+      val = _.get(obj,p)
+      resArr = fn(val, p, i, obj)
+      if _.isArray(resArr)
+        if resArr.length > 1
+          _.set(newObj,resArr[0],resArr[1])
+        else
+          _.set(newObj,p,resArr)
+      else if _.isPlainObject(resArr)
+        key = Object.keys(resArr)[0]
+        val = resArr[key]
+        _.set(newObj, key, val)
+      else
+        _.set(newObj,p,resArr)
+    return newObj
+
 module.exports = utility
