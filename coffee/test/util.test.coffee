@@ -122,3 +122,25 @@ test 'commonPath(pathArray)',(t)->
     ['a','b','c']
   ]
   t.deepEqual _.commonPath(paths),['a','b','c']
+
+test 'compactObject(obj)',(t)->
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 0
+      eee:
+        fff: undefined
+        ggg: null
+      hhh:
+        iii:
+          jjj: true
+  t.deepEqual _.compactObject(obj), {
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 0
+      hhh:
+        iii:
+          jjj: true
+  }

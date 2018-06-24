@@ -100,4 +100,16 @@ utility =
         return true
     return result
 
+  compactObject: (obj)->
+    _paths = utility.deepKeys(obj)
+    newObj = {}
+    _paths.forEach (p)->
+      val = _.get(obj,p)
+      if _.isNil(val)
+        return
+      else
+        _.set(newObj,p,val)
+        return
+    return newObj
+
 module.exports = utility

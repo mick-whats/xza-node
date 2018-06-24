@@ -9,6 +9,7 @@ _.mixin(toDateString: utility.toDateString)
 _.mixin(splitUppercase: utility.splitUppercase)
 _.mixin(deepKeys: utility.deepKeys)
 _.mixin(commonPath: utility.commonPath)
+_.mixin(compactObject: utility.compactObject)
 
 module.exports =
   utility: utility

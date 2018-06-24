@@ -157,4 +157,38 @@
     return t.deepEqual(_.commonPath(paths), ['a', 'b', 'c']);
   });
 
+  test('compactObject(obj)', function(t) {
+    var obj;
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 0
+        },
+        eee: {
+          fff: void 0,
+          ggg: null
+        },
+        hhh: {
+          iii: {
+            jjj: true
+          }
+        }
+      }
+    };
+    return t.deepEqual(_.compactObject(obj), {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 0
+        },
+        hhh: {
+          iii: {
+            jjj: true
+          }
+        }
+      }
+    });
+  });
+
 }).call(this);

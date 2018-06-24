@@ -27,5 +27,6 @@ _ = require('xza').lodash
 - \_.splitUppercase(str,type)
 - \_.deepKeys( obj )
 - \_.commonPath( paths )
+- \_.compactObject( obj )
 
 [example](coffee/test/util.test.coffee)
