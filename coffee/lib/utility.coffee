@@ -85,4 +85,31 @@ utility =
       _depth.push(_.flatten _halfway)
     return _.last(_depth)
 
+  commonPath: (paths)->
+    pathArray = paths.map (path)->
+      if _.isString(path)
+        return _.toPath(path)
+      return path
+    result = []
+    pathArray[0].some (s,columnIndex)->
+      rows = pathArray.map (row)-> row[columnIndex]
+      if rows.every (row)-> row is s
+        result.push(s)
+        return false
+      else
+        return true
+    return result
+
+  compactObject: (obj)->
+    _paths = utility.deepKeys(obj)
+    newObj = {}
+    _paths.forEach (p)->
+      val = _.get(obj,p)
+      if _.isNil(val)
+        return
+      else
+        _.set(newObj,p,val)
+        return
+    return newObj
+
 module.exports = utility
