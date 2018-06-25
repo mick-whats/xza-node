@@ -13,6 +13,7 @@ _.mixin(compactObject: utility.compactObject)
 _.mixin(flattenObject: utility.flattenObject)
 _.mixin(mapObject: utility.mapObject)
 _.mixin(toText: utility.toText)
+_.mixin(dropObject: utility.dropObject)
 
 module.exports =
   utility: utility

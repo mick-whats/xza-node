@@ -300,3 +300,22 @@ test 'toText(NaN)',(t)->
   obj = NaN
   _t = _.toText(obj)
   t.is _t, 'NaN'
+
+test 'dropObject(obj, fn)',(t)->
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 2
+      eee:
+        fff: 3
+        ggg: 4
+  newObj = _.dropObject obj, (val,path,index,object)->
+    return val % 2 is 0
+  t.deepEqual newObj, {
+    aaa:
+      bbb:
+        ddd: 2
+      eee:
+        ggg: 4
+  }

@@ -425,4 +425,33 @@
     return t.is(_t, 'NaN');
   });
 
+  test('dropObject(obj, fn)', function(t) {
+    var newObj, obj;
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 2
+        },
+        eee: {
+          fff: 3,
+          ggg: 4
+        }
+      }
+    };
+    newObj = _.dropObject(obj, function(val, path, index, object) {
+      return val % 2 === 0;
+    });
+    return t.deepEqual(newObj, {
+      aaa: {
+        bbb: {
+          ddd: 2
+        },
+        eee: {
+          ggg: 4
+        }
+      }
+    });
+  });
+
 }).call(this);
