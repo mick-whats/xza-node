@@ -151,7 +151,7 @@ utility =
       else
         obj.toString()
 
-  dropObject: (obj, fn)->
+  rejectObject: (obj, fn)->
     newObj = utility.mapObject obj, (val, p, i, obj)->
       if fn(val, p, i, obj) then val else null
     utility.compactObject(newObj)

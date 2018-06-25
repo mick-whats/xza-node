@@ -310,7 +310,7 @@ test 'dropObject(obj, fn)',(t)->
       eee:
         fff: 3
         ggg: 4
-  newObj = _.dropObject obj, (val,path,index,object)->
+  newObj = _.rejectObject obj, (val,path,index,object)->
     return val % 2 is 0
   t.deepEqual newObj, {
     aaa:

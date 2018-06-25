@@ -439,7 +439,7 @@
         }
       }
     };
-    newObj = _.dropObject(obj, function(val, path, index, object) {
+    newObj = _.rejectObject(obj, function(val, path, index, object) {
       return val % 2 === 0;
     });
     return t.deepEqual(newObj, {
