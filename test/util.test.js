@@ -426,6 +426,7 @@
   });
 
   test('dropObject(obj, fn)', function(t) {
+  test('rejectObject(obj, fn)', function(t) {
     var newObj, obj;
     obj = {
       aaa: {
@@ -445,6 +446,14 @@
     return t.deepEqual(newObj, {
       aaa: {
         bbb: {
+          ccc: 1
+        },
+        eee: {
+          fff: 3
+        }
+      }
+    });
+  });
           ddd: 2
         },
         eee: {

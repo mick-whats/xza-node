@@ -153,6 +153,7 @@ utility =
 
   rejectObject: (obj, fn)->
     newObj = utility.mapObject obj, (val, p, i, obj)->
+      if fn(val, p, i, obj) then null else val
       if fn(val, p, i, obj) then val else null
     utility.compactObject(newObj)
 

@@ -302,6 +302,7 @@ test 'toText(NaN)',(t)->
   t.is _t, 'NaN'
 
 test 'dropObject(obj, fn)',(t)->
+test 'rejectObject(obj, fn)',(t)->
   obj =
     aaa:
       bbb:
@@ -315,6 +316,10 @@ test 'dropObject(obj, fn)',(t)->
   t.deepEqual newObj, {
     aaa:
       bbb:
+        ccc: 1
+      eee:
+        fff: 3
+  }
         ddd: 2
       eee:
         ggg: 4
