@@ -16,7 +16,12 @@
   "bugs": {
     "url": "https://github.com/mick-whats/xza-node/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "lodash",
+    "Useful",
+    "functions",
+    "mixin"
+  ],
   "dependencies": {
     "lodash": "latest",
     "moment": "^2.22.1",
