@@ -140,4 +140,15 @@ utility =
         _.set(newObj,p,resArr)
     return newObj
 
+  toText: (obj)->
+    switch typeof obj
+      when 'object'
+        JSON.stringify(obj,null,2)
+      when 'undefined'
+        'undefined'
+      when 'function'
+        "(#{obj.toString()})()"
+      else
+        obj.toString()
+
 module.exports = utility

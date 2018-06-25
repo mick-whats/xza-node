@@ -219,7 +219,6 @@ test 'mapObject(obj, fn) with returned array',(t)->
       return [newPath, val]
     else
       return [path, val]
-  t.log JSON.stringify(newObj,null,2)
   t.deepEqual newObj, {
     xxx:
       ccc: 1
@@ -245,7 +244,6 @@ test 'mapObject(obj, fn) with returned object',(t)->
       return {[newPath]: val}
     else
       return {[path]: val}
-  t.log JSON.stringify(newObj,null,2)
   t.deepEqual newObj, {
     xxx:
       ccc: 1
@@ -255,3 +253,50 @@ test 'mapObject(obj, fn) with returned object',(t)->
         fff: undefined
         ggg: null
   }
+
+test 'toText(obj)',(t)->
+  obj = {a: 1}
+  _t = _.toText(obj)
+  t.not _t, '{"a": 1}'
+  t.regex _t, /{\s{2,}"a": 1\n}/
+
+test 'toText(arr)',(t)->
+  obj = [1,2,3]
+  _t = _.toText(obj)
+  t.not _t, '[1,2,3]'
+  t.regex _t, /\[\n\s{2}1,\n\s{2}2,\n\s{2}3\s{1}\]/
+
+test 'toText(fn)',(t)->
+  obj = => return true
+  _t = _.toText(obj)
+  t.regex _t, /\(\(\)\s=>\s{\n\s{6}return true;\n\s{4}}\)\(\)/
+
+test 'toText(str)',(t)->
+  obj = 'str'
+  _t = _.toText(obj)
+  t.is _t, 'str'
+
+test 'toText(num)',(t)->
+  obj = 123
+  _t = _.toText(obj)
+  t.is _t, '123'
+
+test 'toText(undefined)',(t)->
+  obj = undefined
+  _t = _.toText(obj)
+  t.is _t, 'undefined'
+
+test 'toText(null)',(t)->
+  obj = null
+  _t = _.toText(obj)
+  t.is _t, 'null'
+
+test 'toText(true)',(t)->
+  obj = true
+  _t = _.toText(obj)
+  t.is _t, 'true'
+
+test 'toText(NaN)',(t)->
+  obj = NaN
+  _t = _.toText(obj)
+  t.is _t, 'NaN'

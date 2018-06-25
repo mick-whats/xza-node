@@ -30,5 +30,6 @@ _ = require('xza').lodash
 - \_.compactObject( obj )
 - \_.flattenObject( obj, separator='\_')
 - \_.mapObject( obj, fn )
+- \_.toText( obj )
 
 [example](coffee/test/util.test.coffee)

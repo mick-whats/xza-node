@@ -301,7 +301,6 @@
         return [path, val];
       }
     });
-    t.log(JSON.stringify(newObj, null, 2));
     return t.deepEqual(newObj, {
       xxx: {
         ccc: 1,
@@ -343,7 +342,6 @@
         };
       }
     });
-    t.log(JSON.stringify(newObj, null, 2));
     return t.deepEqual(newObj, {
       xxx: {
         ccc: 1,
@@ -356,6 +354,75 @@
         }
       }
     });
+  });
+
+  test('toText(obj)', function(t) {
+    var _t, obj;
+    obj = {
+      a: 1
+    };
+    _t = _.toText(obj);
+    t.not(_t, '{"a": 1}');
+    return t.regex(_t, /{\s{2,}"a": 1\n}/);
+  });
+
+  test('toText(arr)', function(t) {
+    var _t, obj;
+    obj = [1, 2, 3];
+    _t = _.toText(obj);
+    t.not(_t, '[1,2,3]');
+    return t.regex(_t, /\[\n\s{2}1,\n\s{2}2,\n\s{2}3\s{1}\]/);
+  });
+
+  test('toText(fn)', function(t) {
+    var _t, obj;
+    obj = () => {
+      return true;
+    };
+    _t = _.toText(obj);
+    return t.regex(_t, /\(\(\)\s=>\s{\n\s{6}return true;\n\s{4}}\)\(\)/);
+  });
+
+  test('toText(str)', function(t) {
+    var _t, obj;
+    obj = 'str';
+    _t = _.toText(obj);
+    return t.is(_t, 'str');
+  });
+
+  test('toText(num)', function(t) {
+    var _t, obj;
+    obj = 123;
+    _t = _.toText(obj);
+    return t.is(_t, '123');
+  });
+
+  test('toText(undefined)', function(t) {
+    var _t, obj;
+    obj = void 0;
+    _t = _.toText(obj);
+    return t.is(_t, 'undefined');
+  });
+
+  test('toText(null)', function(t) {
+    var _t, obj;
+    obj = null;
+    _t = _.toText(obj);
+    return t.is(_t, 'null');
+  });
+
+  test('toText(true)', function(t) {
+    var _t, obj;
+    obj = true;
+    _t = _.toText(obj);
+    return t.is(_t, 'true');
+  });
+
+  test('toText(NaN)', function(t) {
+    var _t, obj;
+    obj = 0/0;
+    _t = _.toText(obj);
+    return t.is(_t, 'NaN');
   });
 
 }).call(this);

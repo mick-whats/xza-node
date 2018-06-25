@@ -12,6 +12,7 @@ _.mixin(commonPath: utility.commonPath)
 _.mixin(compactObject: utility.compactObject)
 _.mixin(flattenObject: utility.flattenObject)
 _.mixin(mapObject: utility.mapObject)
+_.mixin(toText: utility.toText)
 
 module.exports =
   utility: utility
