@@ -32,5 +32,6 @@ _ = require('xza').lodash
 - \_.mapObject( obj, fn )
 - \_.toText( obj )
 - \_.rejectObject( obj, fn )
+- \_.filterObject( obj, fn )
 
 [example](coffee/test/util.test.coffee)

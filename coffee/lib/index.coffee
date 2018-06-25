@@ -14,6 +14,7 @@ _.mixin(flattenObject: utility.flattenObject)
 _.mixin(mapObject: utility.mapObject)
 _.mixin(toText: utility.toText)
 _.mixin(rejectObject: utility.rejectObject)
+_.mixin(filterObject: utility.filterObject)
 
 module.exports =
   utility: utility

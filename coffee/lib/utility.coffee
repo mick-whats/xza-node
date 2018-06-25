@@ -154,6 +154,10 @@ utility =
   rejectObject: (obj, fn)->
     newObj = utility.mapObject obj, (val, p, i, obj)->
       if fn(val, p, i, obj) then null else val
+    utility.compactObject(newObj)
+
+  filterObject: (obj, fn)->
+    newObj = utility.mapObject obj, (val, p, i, obj)->
       if fn(val, p, i, obj) then val else null
     utility.compactObject(newObj)
 

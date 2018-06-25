@@ -425,7 +425,6 @@
     return t.is(_t, 'NaN');
   });
 
-  test('dropObject(obj, fn)', function(t) {
   test('rejectObject(obj, fn)', function(t) {
     var newObj, obj;
     obj = {
@@ -454,6 +453,27 @@
       }
     });
   });
+
+  test('filterObject(obj, fn)', function(t) {
+    var newObj, obj;
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 2
+        },
+        eee: {
+          fff: 3,
+          ggg: 4
+        }
+      }
+    };
+    newObj = _.filterObject(obj, function(val, path, index, object) {
+      return val % 2 === 0;
+    });
+    return t.deepEqual(newObj, {
+      aaa: {
+        bbb: {
           ddd: 2
         },
         eee: {
