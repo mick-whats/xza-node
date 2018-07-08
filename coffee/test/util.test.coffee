@@ -337,3 +337,23 @@ test 'filterObject(obj, fn)', (t) ->
       eee:
         ggg: 4
   }
+test 'setTimeout(fn)', (t) ->
+  testFn = ->
+    new Promise (resolve, reject)->
+      _.setTimeout ->
+        resolve('ok')
+  t.is await testFn(), 'ok'
+test 'setTimeout(delay,fn)', (t) ->
+  testFn = ->
+    new Promise (resolve, reject)->
+      _.setTimeout 200,->
+        resolve('ok')
+      , 'text1', 'bool1'
+  t.is await testFn(), 'ok'
+test 'setTimeout(delay,fn,param1,param2)', (t) ->
+  testFn = ->
+    new Promise (resolve, reject)->
+      fn = (param1,param2)->
+        return resolve(param2)
+      _.setTimeout fn, 200 , 'text1', 'text2'
+  t.is await testFn(), 'text2'

@@ -33,5 +33,6 @@ _ = require('xza').lodash
 - \_.toText( obj )
 - \_.rejectObject( obj, fn )
 - \_.filterObject( obj, fn )
+- \_.setTimeout( [,delay], fn , [,params...])
 
 [example](coffee/test/util.test.coffee)

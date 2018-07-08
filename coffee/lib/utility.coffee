@@ -2,6 +2,7 @@ _ = require 'lodash'
 sizeof = require('object-sizeof')
 prettyBytes = require('pretty-bytes')
 moment = require 'moment'
+args2 = require 'args2'
 
 utility =
   sizeof: (obj)-> prettyBytes(sizeof(obj))
@@ -160,5 +161,12 @@ utility =
     newObj = utility.mapObject obj, (val, p, i, obj)->
       if fn(val, p, i, obj) then val else null
     utility.compactObject(newObj)
+
+  setTimeout: ->
+    [delay, fn, params] = args2.assign(arguments, ['num', 'fn'])
+    params = if params? then params else []
+    params.unshift delay if delay?
+    params.unshift fn
+    setTimeout.apply(null,params)
 
 module.exports = utility

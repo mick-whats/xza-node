@@ -483,4 +483,42 @@
     });
   });
 
+  test('setTimeout(fn)', async function(t) {
+    var testFn;
+    testFn = function() {
+      return new Promise(function(resolve, reject) {
+        return _.setTimeout(function() {
+          return resolve('ok');
+        });
+      });
+    };
+    return t.is((await testFn()), 'ok');
+  });
+
+  test('setTimeout(delay,fn)', async function(t) {
+    var testFn;
+    testFn = function() {
+      return new Promise(function(resolve, reject) {
+        return _.setTimeout(200, function() {
+          return resolve('ok');
+        }, 'text1', 'bool1');
+      });
+    };
+    return t.is((await testFn()), 'ok');
+  });
+
+  test('setTimeout(delay,fn,param1,param2)', async function(t) {
+    var testFn;
+    testFn = function() {
+      return new Promise(function(resolve, reject) {
+        var fn;
+        fn = function(param1, param2) {
+          return resolve(param2);
+        };
+        return _.setTimeout(fn, 200, 'text1', 'text2');
+      });
+    };
+    return t.is((await testFn()), 'text2');
+  });
+
 }).call(this);

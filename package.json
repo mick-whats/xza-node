@@ -23,6 +23,7 @@
     "mixin"
   ],
   "dependencies": {
+    "args2": "^1.2.1",
     "lodash": "latest",
     "moment": "^2.22.1",
     "object-sizeof": "^1.2.0",

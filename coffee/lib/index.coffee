@@ -15,6 +15,7 @@ _.mixin(mapObject: utility.mapObject)
 _.mixin(toText: utility.toText)
 _.mixin(rejectObject: utility.rejectObject)
 _.mixin(filterObject: utility.filterObject)
+_.mixin(setTimeout: utility.setTimeout)
 
 module.exports =
   utility: utility
