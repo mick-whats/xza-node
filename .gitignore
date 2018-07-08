@@ -39,3 +39,4 @@ node_modules
 *error.log
 
 .DS_Store
+coffeelint.json
