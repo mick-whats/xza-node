@@ -33,7 +33,7 @@ utility =
     _format = format or 'YYYY-MM-DD'
     if _.isString(obj)
       _obj = utility.whiteSpaceRemover(obj)
-      _obj = utility.toHalfString(obj)
+      _obj = utility.toHalfString(_obj)
       if _match = _obj.match(/(.*)[年-](\d*)[月-](\d*)日?/)
         [_raw,_year,_month,_day] = _match
         if _month.length is 1

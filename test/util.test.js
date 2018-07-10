@@ -75,7 +75,8 @@
   });
 
   test('whiteSpaceRemover(str)', function(t) {
-    return t.is(_.whiteSpaceRemover(' a bc a　b　c　'), 'abcabc');
+    t.is(_.whiteSpaceRemover(' a bc a　b　c　'), 'abcabc');
+    return t.is(_.whiteSpaceRemover('平成30年 5月11日'), '平成30年5月11日');
   });
 
   test('toDateString(obj,format)', function(t) {
@@ -86,6 +87,7 @@
     t.is(td([2018, 4, 27]), '2018-05-27');
     t.is(td('２０１８年５月２７日'), '2018-05-27');
     t.is(td('2018年1月1日'), '2018-01-01');
+    t.is(td('平成30年 5月11日'), '2018-05-11');
     t.is(td('平成３０年５月２７日'), '2018-05-27');
     t.is(td('昭和３０年５月２７日'), '1955-05-27');
     t.is(td('大正３年５月２７日'), '1914-05-27');
