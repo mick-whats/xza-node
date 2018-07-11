@@ -159,7 +159,12 @@ utility =
 
   filterObject: (obj, fn)->
     newObj = utility.mapObject obj, (val, p, i, obj)->
-      if fn(val, p, i, obj) then val else null
+      if _.isFunction(fn)
+        if fn(val, p, i, obj) then val else null
+      else if _.isArray(fn)
+        if _.includes(fn, p) then val else null
+      else
+        return null
     utility.compactObject(newObj)
 
   setTimeout: ->
@@ -168,5 +173,4 @@ utility =
     params.unshift delay if delay?
     params.unshift fn
     setTimeout.apply(null,params)
-
 module.exports = utility

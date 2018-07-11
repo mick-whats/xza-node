@@ -339,6 +339,13 @@ test 'filterObject(obj, fn)', (t) ->
       eee:
         ggg: 4
   }
+test 'filterObject(obj, array)', (t) ->
+  obj =
+    a: 1
+    b: 2
+    c: 3
+  t.deepEqual _.filterObject(obj, ['a','c']), {a:1, c:3}
+
 test 'setTimeout(fn)', (t) ->
   testFn = ->
     new Promise (resolve, reject)->

@@ -485,6 +485,19 @@
     });
   });
 
+  test('filterObject(obj, array)', function(t) {
+    var obj;
+    obj = {
+      a: 1,
+      b: 2,
+      c: 3
+    };
+    return t.deepEqual(_.filterObject(obj, ['a', 'c']), {
+      a: 1,
+      c: 3
+    });
+  });
+
   test('setTimeout(fn)', async function(t) {
     var testFn;
     testFn = function() {
