@@ -154,7 +154,13 @@ utility =
 
   rejectObject: (obj, fn)->
     newObj = utility.mapObject obj, (val, p, i, obj)->
-      if fn(val, p, i, obj) then null else val
+      if _.isFunction(fn)
+        if fn(val, p, i, obj) then null else val
+      else if _.isArray(fn)
+        if _.includes(fn, p) then null else val
+      else
+        return null
+      
     utility.compactObject(newObj)
 
   filterObject: (obj, fn)->

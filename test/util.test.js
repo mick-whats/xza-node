@@ -456,6 +456,19 @@
     });
   });
 
+  test('rejectObject(obj, array)', function(t) {
+    var obj;
+    obj = {
+      a: 1,
+      b: 2,
+      c: 3
+    };
+    return t.deepEqual(_.rejectObject(obj, ['b']), {
+      a: 1,
+      c: 3
+    });
+  });
+
   test('filterObject(obj, fn)', function(t) {
     var newObj, obj;
     obj = {

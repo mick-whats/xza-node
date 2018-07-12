@@ -321,6 +321,12 @@ test 'rejectObject(obj, fn)', (t) ->
       eee:
         fff: 3
   }
+test 'rejectObject(obj, array)', (t) ->
+  obj =
+    a: 1
+    b: 2
+    c: 3
+  t.deepEqual _.rejectObject(obj, ['b']), {a:1, c:3}
 test 'filterObject(obj, fn)', (t) ->
   obj =
     aaa:
