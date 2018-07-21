@@ -249,6 +249,34 @@
     });
   });
 
+  test('eachObject(obj, fn)', function(t) {
+    var obj;
+    t.plan(4);
+    obj = {
+      aaa: {
+        bbb: {
+          ccc: 1,
+          ddd: 2
+        },
+        eee: {
+          fff: 3,
+          ggg: 4
+        }
+      }
+    };
+    return _.eachObject(obj, function(val, path, index, object) {
+      if (path.includes('aaa.bbb.ccc')) {
+        return t.is(val, 1);
+      } else if (path.includes('aaa.bbb.ddd')) {
+        return t.is(val, 2);
+      } else if (path.includes('aaa.eee.fff')) {
+        return t.is(val, 3);
+      } else if (path.includes('aaa.eee.ggg')) {
+        return t.is(val, 4);
+      }
+    });
+  });
+
   test('mapObject(obj, fn) with sum', function(t) {
     var newObj, obj;
     obj = {

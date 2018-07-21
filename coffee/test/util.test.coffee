@@ -185,6 +185,25 @@ test 'flattenObject(obj, separator)', (t) ->
     'aaa-eee-ggg': null,
     'aaa-hhh-iii-jjj': true,
   }
+test 'eachObject(obj, fn)', (t) ->
+  t.plan(4)
+  obj =
+    aaa:
+      bbb:
+        ccc: 1
+        ddd: 2
+      eee:
+        fff: 3
+        ggg: 4
+  _.eachObject obj, (val,path,index,object) ->
+    if path.includes('aaa.bbb.ccc')
+      t.is val, 1
+    else if path.includes('aaa.bbb.ddd')
+      t.is val, 2
+    else if path.includes('aaa.eee.fff')
+      t.is val, 3
+    else if path.includes('aaa.eee.ggg')
+      t.is val, 4
 test 'mapObject(obj, fn) with sum', (t) ->
   obj =
     aaa:

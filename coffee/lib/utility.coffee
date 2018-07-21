@@ -122,6 +122,14 @@ utility =
       _.set(newObj,_newPath,val)
     return newObj
 
+  eachObject: (obj, fn)->
+    _paths = utility.deepKeys(obj)
+    _paths.forEach (p,i)->
+      val = _.get(obj,p)
+      fn(val, p, i, obj)
+      return
+    return
+
   mapObject: (obj, fn)->
     _paths = utility.deepKeys(obj)
     newObj = {}
