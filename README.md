@@ -29,6 +29,7 @@ _ = require('xza').lodash
 - \_.commonPath( paths )
 - \_.compactObject( obj )
 - \_.flattenObject( obj, separator='\_')
+- \_.eachObject( obj, fn )
 - \_.mapObject( obj, fn )
 - \_.toText( obj )
 - \_.rejectObject( obj, fn )
