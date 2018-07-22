@@ -176,7 +176,9 @@ utility =
       if _.isFunction(fn)
         if fn(val, p, i, obj) then val else null
       else if _.isArray(fn)
-        if _.includes(fn, p) then val else null
+        flag = fn.some (_path)->
+          return if _.startsWith(p, _path) then true else false
+        return if flag then val else null
       else
         return null
     utility.compactObject(newObj)

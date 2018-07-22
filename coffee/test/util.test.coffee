@@ -371,6 +371,18 @@ test 'filterObject(obj, array)', (t) ->
     c: 3
   t.deepEqual _.filterObject(obj, ['a','c']), {a:1, c:3}
 
+test 'filterObject(obj, nestedArray)', (t) ->
+  # t.is 'a', _.toPath('a.b.c')
+  obj =
+    a:
+      aa: 11
+      bb: 22
+    b: 2
+    c: 3
+  t.log _.filterObject(obj, ['a.aa','c'])
+  t.deepEqual _.filterObject(obj, ['a','c']), {a:{aa:11, bb:22}, c:3}
+  t.deepEqual _.filterObject(obj, ['a.b','c']), {a:{bb:22}, c:3}
+
 test 'setTimeout(fn)', (t) ->
   testFn = ->
     new Promise (resolve, reject)->
