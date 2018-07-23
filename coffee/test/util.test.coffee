@@ -346,6 +346,15 @@ test 'rejectObject(obj, array)', (t) ->
     b: 2
     c: 3
   t.deepEqual _.rejectObject(obj, ['b']), {a:1, c:3}
+test 'rejectObject(obj, nestedArray)', (t) ->
+  obj =
+    a:
+      aa: 11
+      bb: 22
+    b: 2
+    c: 3
+  t.deepEqual _.rejectObject(obj, ['a']), {b:2, c:3}
+  t.deepEqual _.rejectObject(obj, ['a.b','c']), {a:{aa:11}, b:2}
 test 'filterObject(obj, fn)', (t) ->
   obj =
     aaa:
@@ -372,14 +381,12 @@ test 'filterObject(obj, array)', (t) ->
   t.deepEqual _.filterObject(obj, ['a','c']), {a:1, c:3}
 
 test 'filterObject(obj, nestedArray)', (t) ->
-  # t.is 'a', _.toPath('a.b.c')
   obj =
     a:
       aa: 11
       bb: 22
     b: 2
     c: 3
-  t.log _.filterObject(obj, ['a.aa','c'])
   t.deepEqual _.filterObject(obj, ['a','c']), {a:{aa:11, bb:22}, c:3}
   t.deepEqual _.filterObject(obj, ['a.b','c']), {a:{bb:22}, c:3}
 

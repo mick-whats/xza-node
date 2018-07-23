@@ -165,10 +165,11 @@ utility =
       if _.isFunction(fn)
         if fn(val, p, i, obj) then null else val
       else if _.isArray(fn)
-        if _.includes(fn, p) then null else val
+        flag = fn.some (_path)->
+          return if _.startsWith(p, _path) then true else false
+        return if flag then null else val
       else
         return null
-      
     utility.compactObject(newObj)
 
   filterObject: (obj, fn)->

@@ -497,6 +497,28 @@
     });
   });
 
+  test('rejectObject(obj, nestedArray)', function(t) {
+    var obj;
+    obj = {
+      a: {
+        aa: 11,
+        bb: 22
+      },
+      b: 2,
+      c: 3
+    };
+    t.deepEqual(_.rejectObject(obj, ['a']), {
+      b: 2,
+      c: 3
+    });
+    return t.deepEqual(_.rejectObject(obj, ['a.b', 'c']), {
+      a: {
+        aa: 11
+      },
+      b: 2
+    });
+  });
+
   test('filterObject(obj, fn)', function(t) {
     var newObj, obj;
     obj = {
@@ -541,7 +563,6 @@
 
   test('filterObject(obj, nestedArray)', function(t) {
     var obj;
-    // t.is 'a', _.toPath('a.b.c')
     obj = {
       a: {
         aa: 11,
@@ -550,7 +571,6 @@
       b: 2,
       c: 3
     };
-    t.log(_.filterObject(obj, ['a.aa', 'c']));
     t.deepEqual(_.filterObject(obj, ['a', 'c']), {
       a: {
         aa: 11,
