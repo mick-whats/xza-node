@@ -25,15 +25,25 @@ _ = require('xza').lodash
 - \_.whiteSpaceRemover( str )
 - \_.toDateString( obj )
 - \_.splitUppercase(str,type)
+- \_.toText( obj )
+- \_.setTimeout( [,delay], fn , [,params...])
+
+## objects
+
 - \_.deepKeys( obj )
 - \_.commonPath( paths )
 - \_.compactObject( obj )
 - \_.flattenObject( obj, separator='\_')
 - \_.eachObject( obj, fn )
 - \_.mapObject( obj, fn )
-- \_.toText( obj )
 - \_.rejectObject( obj, fn )
 - \_.filterObject( obj, fn )
-- \_.setTimeout( [,delay], fn , [,params...])
 
 [example](coffee/test/util.test.coffee)
+
+## math
+
+- \_.diffRate(base, target, round)
+- \_.progressRate(target, progress, round)
+
+[example](coffee/test/math.test.coffee)
