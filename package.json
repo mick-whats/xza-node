@@ -6,7 +6,7 @@
     "compile": "coffee -o ./ -cw coffee/",
     "watch": "npm run compile & nyc ava --watch",
     "cover": "nyc ava",
-    "report": "nyc report --reporter=html",
+    "report": "nyc --reporter=lcov ava",
     "update:snap": "ava --update-snapshots"
   },
   "repository": {
@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "args2": "^1.2.1",
+    "big.js": "^5.1.2",
     "lodash": "latest",
     "moment": "^2.22.1",
     "object-sizeof": "^1.2.0",
