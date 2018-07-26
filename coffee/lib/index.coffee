@@ -18,6 +18,11 @@ _.mixin(rejectObject: utility.rejectObject)
 _.mixin(filterObject: utility.filterObject)
 _.mixin(setTimeout: utility.setTimeout)
 
+# math
+math = require './math'
+_.mixin(diffRate: math.diffRate)
+_.mixin(progressRate: math.progressRate)
+
 module.exports =
   utility: utility
   lodash: _
