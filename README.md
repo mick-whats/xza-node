@@ -45,5 +45,6 @@ _ = require('xza').lodash
 
 - \_.diffRate(base, target, round)
 - \_.progressRate(target, progress, round)
+- \_.addChangeInRates(array, name, [..newName])
 
 [example](coffee/test/math.test.coffee)

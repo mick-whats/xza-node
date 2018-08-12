@@ -22,6 +22,7 @@ _.mixin(setTimeout: utility.setTimeout)
 math = require './math'
 _.mixin(diffRate: math.diffRate)
 _.mixin(progressRate: math.progressRate)
+_.mixin(addChangeInRates: math.addChangeInRates)
 
 module.exports =
   utility: utility

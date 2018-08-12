@@ -30,3 +30,36 @@ test 'progressRate(target, progress, round)', (t) ->
   t.is _.progressRate(50, 12.031454, 5), 24.06291
   t.is _.progressRate(0, -50), NaN
   t.is _.progressRate(null, -50), NaN
+
+test 'addChangeInRates(array)', (t) ->
+  arr = -> [
+    {val: 100}
+    {val: 110}
+    {val: 90}
+  ]
+  t.deepEqual _.addChangeInRates(arr(), 'val'),[
+        {
+          val: 100,
+        },
+        {
+          changeIn_val: 10,
+          val: 110,
+        },
+        {
+          changeIn_val: -18.18,
+          val: 90,
+        },
+      ]
+  t.deepEqual _.addChangeInRates(arr(), 'val', 'newVal'),[
+        {
+          val: 100,
+        },
+        {
+          newVal: 10,
+          val: 110,
+        },
+        {
+          newVal: -18.18,
+          val: 90,
+        },
+      ]

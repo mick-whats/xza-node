@@ -24,4 +24,23 @@ math =
       return Number(new Big(1).plus(_diffRate).times(100).round(round))
     catch e
       return NaN
+  addChangeInRates: (array, name, newName) ->
+    unless _.isArray(array)
+      return []
+    unless name
+      return array
+    newName = if newName then newName else "changeIn_#{name}"
+    ref = null
+    array.map (item, index)->
+      val = _.get(item, name)
+      if index is 0
+        ref = val
+        return item
+      if val?
+        item[newName] = math.diffRate(ref, val)
+        ref = val
+        return item
+      else
+        item[newName] = null
+
 module.exports = math
