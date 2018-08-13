@@ -48,3 +48,7 @@ _ = require('xza').lodash
 - \_.addChangeInRates(array, name, [..newName])
 
 [example](coffee/test/math.test.coffee)
+
+## bizday(Business Day)
+
+[example](coffee/test/businessDay.test.coffee)
