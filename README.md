@@ -51,4 +51,4 @@ _ = require('xza').lodash
 
 ## bizday(Business Day)
 
-[example](coffee/test/businessDay.test.coffee)
+[README.md](https://github.com/mick-whats/bizday-js/blob/master/README.md)

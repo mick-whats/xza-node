@@ -27,5 +27,5 @@ _.mixin(addChangeInRates: math.addChangeInRates)
 module.exports =
   utility: utility
   lodash: _
-  bizday: require './businessDay'
+  bizday: require 'bizday'
   
