@@ -29,6 +29,7 @@
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "object-sizeof": "^1.2.0",
+    "objelity": "^1.1.1",
     "pretty-bytes": "^5.1.0",
     "rrq": "^1.1.1"
   },

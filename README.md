@@ -27,6 +27,9 @@ _ = require('xza').lodash
 - \_.splitUppercase(str,type)
 - \_.toText( obj )
 - \_.setTimeout( [,delay], fn , [,params...])
+- \_.includesString( string, searchString)
+
+[example](coffee/test/util.test.coffee)
 
 ## objects
 
@@ -39,7 +42,7 @@ _ = require('xza').lodash
 - \_.rejectObject( obj, fn )
 - \_.filterObject( obj, fn )
 
-[example](coffee/test/util.test.coffee)
+[objelity](https://github.com/mick-whats/objelity)
 
 ## math
 
