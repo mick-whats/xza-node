@@ -25,7 +25,6 @@
     "mixin"
   ],
   "dependencies": {
-    "args2": "^1.2.3",
     "big.js": "^5.1.2",
     "bizday": "^2.0.0",
     "object-sizeof": "^1.2.0",
@@ -34,7 +33,6 @@
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "coffeescript": "^2.3.1",
     "coveralls": "^3.0.2",
     "eslint": "^5.9.0",
     "eslint-config-standard": "^12.0.0",

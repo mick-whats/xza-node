@@ -6,6 +6,7 @@
     "node": true
   },
   "rules": {
+    "require-jsdoc": 2,
     "node/exports-style": "warn",
     "node/no-deprecated-api": "error",
     "node/no-missing-import": "error",
