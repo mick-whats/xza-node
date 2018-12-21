@@ -30,8 +30,7 @@
     "bizday": "^2.0.0",
     "object-sizeof": "^1.2.0",
     "objelity": "^1.1.1",
-    "pretty-bytes": "^5.1.0",
-    "rrq": "^1.1.1"
+    "pretty-bytes": "^5.1.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
