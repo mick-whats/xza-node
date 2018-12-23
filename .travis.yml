@@ -4,11 +4,10 @@ env:
 
 language: node_js
 node_js:
-  - "10"
-  - "9"
-  - "8"
-  - "7"
-  - "6"
+  - '11'
+  - '10'
+  - '8'
+  - '6'
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
