@@ -2,7 +2,7 @@
   "name": "xza",
   "version": "2.16.1",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.6.0"
   },
   "scripts": {
     "test": "ava",
@@ -26,9 +26,9 @@
   ],
   "dependencies": {
     "big.js": "^5.1.2",
-    "bizday": "^2.0.0",
+    "bizday": "^2.0.2",
     "object-sizeof": "^1.2.0",
-    "objelity": "^1.1.1",
+    "objelity": "^1.1.2",
     "pretty-bytes": "^5.1.0"
   },
   "devDependencies": {
