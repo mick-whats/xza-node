@@ -27,6 +27,7 @@
   "dependencies": {
     "big.js": "^5.1.2",
     "bizday": "^2.0.2",
+    "moment-mini": "^2.22.1",
     "object-sizeof": "^1.2.0",
     "objelity": "^1.1.2",
     "pretty-bytes": "^5.1.0"

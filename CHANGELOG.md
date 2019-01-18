@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
+## [2.16.4] - 2019-01-18
+
+### Changed
+
+- momentを`moment-mini`に変更
+  
 ## [2.16.3] - 2019-01-04
 
 ### Changed
