@@ -6,12 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
+## [2.17.1] - 2019-01-28
+
+### Added
+
+- 以下をlodashからreplace、IEEE754の誤差に対応の為Bigjsで計算
+- _.sum
+- _.sumBy
+
 ## [2.16.4] - 2019-01-18
 
 ### Changed
 
 - momentを`moment-mini`に変更
-  
+- install sizeが1.08MB -> 931KBに縮小
+
 ## [2.16.3] - 2019-01-04
 
 ### Changed
