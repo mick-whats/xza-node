@@ -10,12 +10,12 @@ Extended lodash
 これは簡単なコードの寄せ集めです。
 読み込むだけでlodashを拡張します。
 
-```
+```shell
 npm install xza --save
 ```
 
-```
-_ = require('xza').lodash
+```js
+const _ = require('xza').lodash
 ```
 
 ## utility
@@ -52,7 +52,14 @@ _ = require('xza').lodash
 - \_.progressRate(target, progress, round)
 - \_.addChangeInRates(array, name, [..newName])
 
-[example](coffee/test/math.test.coffee)
+```js
+const { math } = require('xza')
+```
+
+- math.sum(num[])
+- math.sumBy(object[])
+
+[example](test/math.test.coffee)
 
 ## bizday(Business Day)
 
