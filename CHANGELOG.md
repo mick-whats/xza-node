@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- 以下をlodashからreplace、IEEE754の誤差に対応の為Bigjsで計算
+- 以下を追加。lodashに同名の関数があるがIEEE754の誤差に対応の為Bigjsで計算
 - _.sum
 - _.sumBy
 
