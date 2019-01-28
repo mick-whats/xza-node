@@ -1,5 +1,6 @@
-const _ = require('../').lodash
+const _ = require('..').lodash
 const Big = require('big.js')
+const math = require('..').math
 const { test } = require('ava')
 
 test('diffRate(base, target, round)', function (t) {
@@ -82,17 +83,20 @@ test('js', t => {
   t.is(parseFloat(Big(a).plus(b)), 20.4)
 })
 test('sum', t => {
+  t.notDeepEqual(_.sum, math.sum)
+  t.is(math.sum([0.1, 0.2]), 0.3)
+  t.is(_.sum([0.1, 0.2]), 0.30000000000000004)
+  t.is(math.sum([1, 2, 3, 4, 5]), 15)
   t.is(_.sum([1, 2, 3, 4, 5]), 15)
+  t.is(math.sum([0.1, 0.2, 0.3, 0.4, 0.5]), 1.5)
+  t.is(_.sum([0.1, 0.2, 0.3, 0.4, 0.5]), 1.5)
 })
 test('sumBy', t => {
-  const arr = [
-    { a: 1, b: 2 },
-    { a: 2, b: 4 },
-    { a: 3, b: 6 },
-    { a: 4, b: 8 },
-    { a: 5, b: 10 }
-  ]
-  t.is(_.sumBy(arr, 'a'), 15)
-  t.is(_.sumBy(arr, 'b'), 30)
-  t.is(_.sumBy(arr, o => o.b), 30)
+  const arr = [{ a: 0.1, b: 0.2 }, { a: 0.2, b: 0.4 }, { a: 0.3, b: 0.6 }]
+  t.is(math.sumBy(arr, 'a'), 0.6)
+  t.is(math.sumBy(arr, 'b'), 1.2)
+  t.is(math.sumBy(arr, o => o.b), 1.2)
+  t.is(_.sumBy(arr, 'a'), 0.6000000000000001)
+  t.is(_.sumBy(arr, 'b'), 1.2000000000000002)
+  t.is(_.sumBy(arr, o => o.b), 1.2000000000000002)
 })
