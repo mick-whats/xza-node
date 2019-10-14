@@ -30,6 +30,7 @@ const _ = require('xza').lodash
 - \_.toText( obj )
 - \_.setTimeout( [,delay], fn , [,params...])
 - \_.includesString( string, searchString)
+- \_.sma( values, range, roundNumber)
 
 [example](coffee/test/util.test.coffee)
 

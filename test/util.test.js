@@ -1,6 +1,7 @@
 /* eslint-disable node/no-unsupported-features */
 
 const _ = require('../').lodash
+// eslint-disable-next-line node/no-unpublished-require
 const { test } = require('ava')
 
 require('../')
@@ -177,4 +178,10 @@ test('setTimeout(delay,fn,param1,param2)', async function (t) {
 test('includesString', function (t) {
   t.true(_.includesString('TEST', 'Test'))
   return t.false(_.includesString('TEST', 'Tests'))
+})
+test('sma', t => {
+  const values = [1, 2, 4, 8, 16]
+  const range = 3
+  t.deepEqual(_.sma(values, range), [null, null, 2.33, 4.67, 9.33])
+  t.deepEqual(_.sma(values, range, 3), [null, null, 2.333, 4.667, 9.333])
 })

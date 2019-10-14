@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
+## [2.17.3] - 2019-10-14
+
+### Added
+
+- 以下を追加
+- _.sma(values, range, roundNumber)
+
 ## [2.17.2] - 2019-04-15
 
 ### Fixed
