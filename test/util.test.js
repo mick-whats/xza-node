@@ -23,7 +23,7 @@ test('util.sizeof', function (t) {
         value: i
       }
     })
-  return t.is(_.sizeof(obj), '576 kB')
+  return t.is(_.sizeof(obj), '498 kB')
 })
 
 test('util.strToNumber', function (t) {
